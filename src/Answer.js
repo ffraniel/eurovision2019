@@ -12,7 +12,6 @@ const Answer = (props) => {
 
   return (
     <section className="answer">
-      
       <h1>{usersAnswer.country === currentAnswer.country ? 'Correct!' : 'Wrong!'}</h1>
       <h3>The answer was {currentAnswer.country}!</h3>
       <h5>The song was "{currentAnswer.song}"" by '{currentAnswer.artist}'</h5>
