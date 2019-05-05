@@ -34,14 +34,16 @@ const Question = (props) => {
   var songOptions = shuffleArray(getRandomOptions());
   var currentSong = choosenSongs[currentRound - 1];
 
-  // get random lyrics
-
-
-
+  let snippetArray = currentSong.lyrics.split(" ");
+  let start = Math.round(Math.random() * (snippetArray.length / 2));
+  let possibleLengths = [30, 50, 20, 16, 26, 40];
+  let snippetLength = possibleLengths[Math.round(Math.random() * possibleLengths.length)];
+  let end = start + snippetLength;
+  let lyrics = snippetArray.slice(start, end).join(" ");
 
   return (
     <section className="question">
-      <h1>"{currentSong.lyrics}"</h1>
+      <h1>"{lyrics}"</h1>
 
       {songOptions.map(song => (
         <button 
