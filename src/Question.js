@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './Answer.css';
-import songs from './data/songs.js';
 import songsJSON from './data/lyricsJson.json';
 
 const Question = (props) => {

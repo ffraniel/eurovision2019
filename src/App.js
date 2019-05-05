@@ -2,7 +2,6 @@ import React, { Component }from 'react';
 import './App.css';
 import Gameplay from './Gameplay';
 import Intro from './Intro';
-import songs from './data/songs';
 import songsJSON from './data/lyricsJson.json';
 
 class App extends Component {
