@@ -3,6 +3,7 @@ import './App.css';
 import Gameplay from './Gameplay';
 import Intro from './Intro';
 import songs from './data/songs';
+import songsJSON from './data/lyricsJson.json';
 
 class App extends Component {
   constructor(props) {
@@ -11,36 +12,38 @@ class App extends Component {
       active: false,
       currentRound: 1,
       points: 0,
-      lyricSnippet: '',
       choosenSongs: []
     }
     this.startGame = this.startGame.bind(this);
     this.submitAnswer = this.submitAnswer.bind(this);
     this.incrementRound = this.incrementRound.bind(this);
+    this.reset = this.reset.bind(this);
   };
-
-  componentDidMount () {
-    this.setState({
-      choosenSongs: songs
-    })
-  }
 
   startGame () {
-    this.setState(state => {
-      if (state.active) {
-        return {
-          active: false,
-          currentRound: 1,
-          points: 0,
-          choosenSongs: songs
-        }
-      } else if (!state.active) {
-        return {
-          active: true
-        }
-      }
+    var wholeSongList = songsJSON;
+    var songChoice = [];
+    while (songChoice.length < 3 ) {
+      let randomNumber = Math.round(Math.random() * wholeSongList.length);
+      songChoice.push(wholeSongList[randomNumber]);
+      wholeSongList.splice(randomNumber, 1);
+    };
+    this.setState({
+      active: true,
+      currentRound: 1,
+      points: 0,
+      choosenSongs: songChoice
     });
   };
+
+  reset () {
+    this.setState({
+      active: false,
+      currentRound: 1,
+      points: 0,
+      choosenSongs: []
+    });
+  }
 
   submitAnswer (submittedAnswer) {
     const currentAnswer = this.state.choosenSongs[this.state.currentRound - 1];
@@ -65,9 +68,12 @@ class App extends Component {
     return (
       <section className="App">
         <header className="header">
-          <button onClick={()=>{this.startGame()}} className="start-button">
-            {this.state.active ? 'Quit' : 'Start'}
-          </button>
+          {!this.state.active &&
+            <button onClick={()=>{this.startGame()}} className="start-button">Start</button>
+          }
+          {this.state.active && 
+            <button onClick={()=>{this.reset()}}>Reset</button>
+          }
           {this.state.active && 
           <section className="stats-bar">
             <h4>Current Round {this.state.currentRound}</h4>

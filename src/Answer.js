@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Answer.css';
 
 const Answer = (props) => {
@@ -10,6 +10,8 @@ const Answer = (props) => {
     currentRound
   } = props;
 
+  const [showingResults, setShowingResults] = useState(false);
+
   return (
     <section className="answer">
       <h1>{usersAnswer.country === currentAnswer.country ? 'Correct!' : 'Wrong!'}</h1>
@@ -18,8 +20,11 @@ const Answer = (props) => {
       {currentRound < 3 &&
       <button onClick={()=>{nextQuestion()}}>Next Question</button> 
       }
-      {currentRound === 3 && 
-      <button onClick={()=>{showResults()}}>Show results</button>
+      {currentRound === 3 && !showingResults && 
+        <button onClick={()=>{
+          showResults();
+          setShowingResults(true);
+        }}>Show results</button>
       }
     </section>
   )
