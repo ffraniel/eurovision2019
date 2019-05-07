@@ -1,6 +1,7 @@
-import React from 'react';
-import './Answer.css';
+import React, { useState } from 'react';
+import './Question.css';
 import songsJSON from './data/lyricsJson.json';
+import Error from './Error';
 
 const Question = (props) => {
   const { 
@@ -9,15 +10,19 @@ const Question = (props) => {
     submitAnswerControl
    } = props;
 
+   const [error, setError] = useState(null);
+
   const getRandomOptions = () => {
-    console.log("called it *****")
-    const randomOptions = [];
-    var songsList = songsJSON;
-    randomOptions.push(choosenSongs[currentRound - 1]);
-    while(randomOptions.length < 4) {
-      let randomNum = Math.round(Math.random() * songsList.length);
-      randomOptions.push(songsList[randomNum]);
-      randomOptions.splice(randomNum, 1);
+    var randomOptions = [];
+    randomOptions.push(choosenSongs[currentRound-1]);
+    while (randomOptions.length < 3) {
+      let randomSong = songsJSON[Math.floor(Math.random() * songsJSON.length)]; // should this be length -1 ?
+      if(randomOptions.includes(randomSong)) {
+        console.log("It has the song ", randomSong.song, " in the list already")
+      }
+      if (!randomOptions.includes(randomSong)) {
+        randomOptions.push(randomSong);
+      };
     };
     return randomOptions;
   };
@@ -27,33 +32,60 @@ const Question = (props) => {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
-    console.log(array)
     return array;
   }
+
+  const getSnippet = (songInput) => {
+    let snippetArray = songInput.lyrics.trim().split(" ");
+    let start = Math.round(Math.random() * (snippetArray.length / 2));
+    let possibleLengths = [30, 45, 20, 20, 26, 30, 16, 26, 40];
+    let snippetLength = possibleLengths[Math.floor(Math.random() * possibleLengths.length)];
+    let end = start + snippetLength;
+    var lyricsSnippet = snippetArray.slice(start, end).join(" ");
+    if (lyricsSnippet.length === 0) {
+      let snippetArray = songInput.lyrics.trim().split(" ");
+      let start = Math.round(Math.random() * (snippetArray.length / 2));
+      let possibleLengths = [30, 45, 20, 20, 26, 30, 16, 26, 40];
+      let snippetLength = possibleLengths[Math.floor(Math.random() * possibleLengths.length)];
+      let end = start + snippetLength;
+      lyricsSnippet = snippetArray.slice(start, end).join(" ");
+      if (lyricsSnippet.length === 0) {
+        let snippetArray = songInput.lyrics.trim().split(" ");
+        let start = Math.round(Math.random() * (snippetArray.length / 2));
+        let possibleLengths = [30, 45, 20, 20, 26, 30, 16, 26, 40];
+        let snippetLength = possibleLengths[Math.floor(Math.random() * possibleLengths.length)];
+        let end = start + snippetLength;
+        lyricsSnippet = snippetArray.slice(start, end).join(" ");
+      }
+      if (lyricsSnippet.length === 0) {
+        setError({message: "Lyrics snippet selection error. Please refresh the page."});
+      }
+    }
+    return lyricsSnippet;
+  };
   var songOptions = shuffleArray(getRandomOptions());
   var currentSong = choosenSongs[currentRound - 1];
+  const lyrics = getSnippet(currentSong);
 
-  let snippetArray = currentSong.lyrics.split(" ");
-  let start = Math.round(Math.random() * (snippetArray.length / 2));
-  let possibleLengths = [30, 50, 20, 16, 26, 40];
-  let snippetLength = possibleLengths[Math.round(Math.random() * possibleLengths.length)];
-  let end = start + snippetLength;
-  let lyrics = snippetArray.slice(start, end).join(" ");
+  if (error) {
+    return (
+      <Error message={error.message} />
+    )
+  }
 
   return (
     <section className="question">
-      <h1>"{lyrics}"</h1>
-
-      {songOptions.map(song => (
-        <button 
-          onClick={() => {
-            submitAnswerControl(song);
-          }}
-          key={song.country}
-        >{song.country}</button>
-      ))}
+      <h1 className="question-lyrics">"...{lyrics}..."</h1>
+      {songOptions.map((song, i)=> {
+        if(song === undefined) {
+          return <Error key={`error${i}`}/>
+        }
+        return (
+          <button onClick={() => {submitAnswerControl(song)}} key={song.country} >{song.country}</button>
+        )}
+      )}
     </section>
-  )
+  );
 };
 
 export default Question;

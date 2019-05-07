@@ -20,9 +20,9 @@ class App extends Component {
   };
 
   startGame () {
-    var wholeSongList = songsJSON;
+    var wholeSongList = [...songsJSON];
     var songChoice = [];
-    while (songChoice.length < 3 ) {
+    while (songChoice.length < 3) {
       let randomNumber = Math.round(Math.random() * wholeSongList.length);
       songChoice.push(wholeSongList[randomNumber]);
       wholeSongList.splice(randomNumber, 1);

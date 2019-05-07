@@ -39,7 +39,8 @@ request(officialSite, function(error, response, body) {
             country,
             lilFlag,
             image,
-            lyrics
+            lyrics,
+            index: i
           };
           allSongs.push(songObject);
           console.log(songObject.song)
@@ -52,5 +53,5 @@ request(officialSite, function(error, response, body) {
 
 setTimeout(()=>{
   writeData(allSongs);
-}, 20000)
+}, 12000)
 
