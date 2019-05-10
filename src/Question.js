@@ -87,7 +87,7 @@ const Question = (props) => {
 
   return (
     <section className="question">
-      <button className="speak-question" onClick={()=>{speak(lyrics)}} >Speak</button>
+      <button className="speak-question" onClick={()=>{speak(lyrics)}}>Speak It!</button>
       <h1 className="question-lyrics">"...{lyrics}..."</h1>
       <section className="button-container">
       {songOptions.map((song, i)=> {

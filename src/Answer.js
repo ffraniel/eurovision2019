@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './Answer.css';
 
 const Answer = (props) => {
@@ -11,35 +11,6 @@ const Answer = (props) => {
   } = props;
 
   const [showingResults, setShowingResults] = useState(false);
-
-  useEffect(()=>{
-    console.log("live")
-    // const points = document.querySelector('.points');
-    // const central = document.querySelector('.points-central');
-    // const highlight = document.querySelector('.highlight');
-    // let start = central.getBoundingClientRect();
-    // let finish = points.getBoundingClientRect();
-    // let coords = {
-    //   width: start.width,
-    //   height: start.height,
-    //   top: start.top,
-    //   left: start.left
-    // };
-    // highlight.style.width = `${coords.width}px`;
-    // highlight.style.height = `${coords.height}px`;
-    // highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
-    // setTimeout(()=>{
-    //   let newCoords = {
-    //     width: finish.width,
-    //     height: finish.height,
-    //     top: finish.top,
-    //     left: finish.left
-    //   };
-    //   highlight.style.width = `${newCoords.width}px`;
-    //   highlight.style.height = `${newCoords.height}px`;
-    //   highlight.style.transform = `translate(${newCoords.left}px, ${newCoords.top}px)`;
-    // }, 500);
-  }, []);
 
   return (
     <section className="answer">
