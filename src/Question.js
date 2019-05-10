@@ -10,7 +10,19 @@ const Question = (props) => {
     submitAnswerControl
    } = props;
 
-   const [error, setError] = useState(null);
+  const [error, setError] = useState(null);
+  
+  const speak = (lyrics, startOver = true) => {
+    var msg = new SpeechSynthesisUtterance();
+    // msg.voice = voice;
+    msg.text = lyrics;
+    speechSynthesis.cancel();
+    speechSynthesis.speak(msg);
+    if (startOver) {
+      setTimeout(() => {
+      }, 100);
+    };
+  };
 
   const getRandomOptions = () => {
     var randomOptions = [];
@@ -75,6 +87,7 @@ const Question = (props) => {
 
   return (
     <section className="question">
+      <button className="speak-question" onClick={()=>{speak(lyrics)}} >Speak</button>
       <h1 className="question-lyrics">"...{lyrics}..."</h1>
       <section className="button-container">
       {songOptions.map((song, i)=> {
