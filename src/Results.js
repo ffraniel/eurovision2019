@@ -6,7 +6,7 @@ const Results = (props) => {
   return (
     <section className="results">
       <h1 className="results-score">You scored {points}/3</h1>
-      <button onClick={()=>{props.reset()}} className="reset-button">Restart</button>
+      <button onClick={()=>{reset()}} className="reset-button">Restart</button>
     </section>
   );
 };
