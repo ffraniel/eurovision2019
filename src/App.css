@@ -71,10 +71,18 @@ body {
   position: fixed;
   bottom: 0;
   right: 20px;
-  background: black;
+  background-color: black;
   color: white;
   padding: 8px;
   border-radius: 10px;
+  font-family: 'VT323';
+  font-size: 1.2rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.profile-link:hover {
+  background-color:white;
+  color: black;
 }
 
 .points {
