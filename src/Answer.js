@@ -11,14 +11,15 @@ const Answer = (props) => {
   } = props;
 
   const [showingResults, setShowingResults] = useState(false);
-
+  console.log(currentAnswer.image)
   return (
     <section className="answer">
       {!showingResults &&
       <>
         <h1>{usersAnswer.country === currentAnswer.country ? 'Correct!' : 'Wrong!'}</h1>
-        <h3>The answer was {currentAnswer.country}!</h3>
+        <h3>The answer was {currentAnswer.country}! <img className="lilFlag" src={currentAnswer.lilFlag} alt={`${currentAnswer.country} flag`} /></h3>
         <h5>The song was '{currentAnswer.song}' by '{currentAnswer.artist}'.</h5>
+        <img className="artist-image" src={currentAnswer.image} alt={`${currentAnswer.country} artist image of ${currentAnswer.artist}`} />
       </>
       }
       {currentRound < 3 &&
