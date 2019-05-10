@@ -64,3 +64,13 @@ body {
   background: rgb(85, 85, 72);
   color: white;
 }
+
+.profile-link {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  background: black;
+  color: white;
+  padding: 8px;
+  border-radius: 10px;
+}

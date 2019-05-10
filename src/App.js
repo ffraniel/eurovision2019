@@ -93,6 +93,7 @@ class App extends Component {
         {!this.state.active && 
           <Intro startGame={this.startGame} />
         }
+        <a className="profile-link" href="https://franwebdev.uk/">https://franwebdev.uk/</a>
       </section>
     );
   }
