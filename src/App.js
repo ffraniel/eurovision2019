@@ -77,7 +77,7 @@ class App extends Component {
           <img className="header-logo" src={Logo} alt="logo" />
           <section className="stats-bar">
             <h4>Round {this.state.currentRound}</h4>
-            <h4>Points {this.state.points}</h4>
+            <h4 className="points">Points {this.state.points}</h4>
           </section>
         </header>
         {this.state.active && 

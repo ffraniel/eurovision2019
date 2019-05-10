@@ -76,3 +76,7 @@ body {
   padding: 8px;
   border-radius: 10px;
 }
+
+.points {
+  z-index: 3;
+}
