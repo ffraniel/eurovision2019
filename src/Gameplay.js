@@ -10,7 +10,8 @@ const Gameplay = (props) => {
     points,
     choosenSongs,
     submitAnswer,
-    incrementRound
+    incrementRound,
+    reset
   } = props;
 
   const [questionMode, setQuestionMode] = useState(true);
@@ -39,7 +40,7 @@ const Gameplay = (props) => {
   return (
     <section className="gameplay">
       {resultsShowing &&
-      <Results points={points}/>
+      <Results points={points} reset={reset} />
       }
       {questionMode ? 
         <Question 

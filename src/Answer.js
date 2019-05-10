@@ -22,10 +22,10 @@ const Answer = (props) => {
       </>
       }
       {currentRound < 3 &&
-      <button onClick={()=>{nextQuestion()}}>Next Question</button> 
+      <button className="answer-button" onClick={()=>{nextQuestion()}}>Next Question</button> 
       }
       {currentRound === 3 && !showingResults && 
-        <button onClick={()=>{
+        <button className="answer-button" onClick={()=>{
           showResults();
           setShowingResults(true);
         }}>Show results</button>

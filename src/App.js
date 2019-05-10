@@ -3,6 +3,7 @@ import './App.css';
 import Gameplay from './Gameplay';
 import Intro from './Intro';
 import songsJSON from './data/lyricsJson.json';
+import Logo from './logo.svg';
 
 class App extends Component {
   constructor(props) {
@@ -68,17 +69,16 @@ class App extends Component {
       <section className="App">
         <header className="header">
           {!this.state.active &&
-            <button onClick={()=>{this.startGame()}} className="start-button">Start</button>
+            <button onClick={()=>{this.startGame()}} className="game-button">Start</button>
           }
           {this.state.active && 
-            <button onClick={()=>{this.reset()}}>Reset</button>
+            <button onClick={()=>{this.reset()}} className="game-button">Reset</button>
           }
-          {this.state.active && 
+          <img className="header-logo" src={Logo} alt="logo" />
           <section className="stats-bar">
-            <h4>Current Round {this.state.currentRound}</h4>
+            <h4>Round {this.state.currentRound}</h4>
             <h4>Points {this.state.points}</h4>
           </section>
-          }
         </header>
         {this.state.active && 
           <Gameplay 
@@ -87,10 +87,11 @@ class App extends Component {
             choosenSongs={this.state.choosenSongs}
             submitAnswer={this.submitAnswer}
             incrementRound={this.incrementRound}
+            reset={this.reset}
           />
         }
         {!this.state.active && 
-          <Intro />
+          <Intro startGame={this.startGame} />
         }
       </section>
     );

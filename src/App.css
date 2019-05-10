@@ -1,11 +1,66 @@
 body {
-  background: rgb(222, 213, 231);
+
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+
+  /* background-color: #0062ff;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23784f9a' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E"); */
+
+
+  background-image: url(https://eurovision.tv/images/background.jpg?id=3381b429ff2057adf85c);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
 .App {
-  text-align: center;
+
 }
 
 .header {
-  background: rgb(161, 207, 167);
+  background: rgb(219, 229, 232);
+  font-weight: 600;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  color: rgb(3, 11, 39);
+  padding-bottom: 10px;
+  
+}
+
+.header-logo {
+  grid-column: 3 / 4;
+  justify-self: center;
+}
+
+.stats-bar {
+  grid-column: 5 / 6;
+  text-align: right;
+  margin-right: 20px;
+}
+
+.stats-bar h4 {
+  padding: 0px;
+  margin: 5px;
+}
+
+.game-button {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  padding: 5px 20px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  margin: 10px;
+  text-align: center;
+  transition: background-color 0.25s;
+  font-size: 1.25rem;
+  width: 100px;
+  height: 40px;
+}
+
+.game-button:hover {
+  background: rgb(85, 85, 72);
+  color: white;
 }

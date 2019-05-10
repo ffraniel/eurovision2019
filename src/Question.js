@@ -76,14 +76,16 @@ const Question = (props) => {
   return (
     <section className="question">
       <h1 className="question-lyrics">"...{lyrics}..."</h1>
+      <section className="button-container">
       {songOptions.map((song, i)=> {
         if(song === undefined) {
           return <Error key={`error${i}`}/>
         }
         return (
-          <button onClick={() => {submitAnswerControl(song)}} key={song.country} >{song.country}</button>
+          <button className="answer-button" onClick={() => {submitAnswerControl(song)}} key={song.country} >{song.country}</button>
         )}
       )}
+      </section>
     </section>
   );
 };

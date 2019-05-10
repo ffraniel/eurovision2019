@@ -2,9 +2,12 @@ import React from 'react';
 import './Results.css';
 
 const Results = (props) => {
-  const {points} = props;
+  const {points, reset} = props;
   return (
-    <h1>You scored {points}/3</h1>
+    <section className="results">
+      <h1 className="results-score">You scored {points}/3</h1>
+      <button onClick={()=>{props.reset()}} className="reset-button">Restart</button>
+    </section>
   );
 };
 

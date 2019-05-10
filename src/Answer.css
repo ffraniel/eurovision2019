@@ -1,0 +1,30 @@
+.answer {
+  text-align: center;
+  width: 60%;
+  padding: 20px;
+  padding-top: 30px;
+  margin: 0 auto;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: rgb(239, 245, 247);
+}
+
+.answer-button {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  padding: 5px 20px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  margin: 10px;
+  text-align: center;
+  transition: background-color 0.25s;
+  font-size: 1.25rem;
+  height: 40px;
+}
+
+.answer-button:hover {
+  background: rgb(85, 85, 72);
+  color: white;
+}
