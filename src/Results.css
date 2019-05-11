@@ -13,6 +13,12 @@
   color: rgb(239, 245, 247);
 }
 
+.results-image {
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
 .reset-button {
   background-color: white;
   border: none;
@@ -42,6 +48,12 @@
     margin: 30px auto;
     font-size: 1.5rem;
     font-weight: 400;
+  }
+
+  .results-image{
+    height: 160px;
+    padding: 0px;
+    margin: 0 auto;
   }
   
   .reset-button {
