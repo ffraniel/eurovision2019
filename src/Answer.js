@@ -22,10 +22,10 @@ const Answer = (props) => {
         <img className="artist-image" src={currentAnswer.image} alt={`${currentAnswer.country} artist: ${currentAnswer.artist}`} />
       </>
       }
-      {currentRound < 3 &&
+      {currentRound < 5 &&
       <button className="answer-button" onClick={()=>{nextQuestion()}}>Next Question</button> 
       }
-      {currentRound === 3 && !showingResults && 
+      {currentRound === 5 && !showingResults && 
         <button className="answer-button" onClick={()=>{
           showResults();
           setShowingResults(true);
