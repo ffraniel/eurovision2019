@@ -56,3 +56,26 @@
   color: white;
   background-color: black;
 }
+
+
+@media screen and (max-width: 660px) {
+  .question-lyrics {
+    width: 90%;
+    padding: 0px;
+    padding-top: 10px;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+
+  button.answer-button {
+    color: black;
+    padding: 3px 10px;
+    margin: 6px;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    height: auto;
+  }
+  .speak-question {
+    padding: 5px 10px;
+  }
+}

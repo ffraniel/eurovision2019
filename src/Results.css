@@ -26,11 +26,27 @@
   transition: background-color 0.25s;
   font-size: 1.25rem;
   height: 40px;
-
 }
 
 .reset-button:hover {
   background: rgb(85, 85, 72);
   color: white;
+}
 
+
+@media screen and (max-width: 660px) {  
+  .results-score {
+    text-align: center;
+    width: 100%;
+    padding: 0px;
+    margin: 30px auto;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  
+  .reset-button {
+    padding: 0px 10px;
+    margin: 0px;
+    font-size: 1.1rem;
+  }
 }

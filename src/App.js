@@ -69,10 +69,10 @@ class App extends Component {
       <section className="App">
         <header className="header">
           {!this.state.active &&
-            <button onClick={()=>{this.startGame()}} className="game-button">Start</button>
+            <button onClick={()=>{this.startGame()}} className="header-game-button">Start</button>
           }
           {this.state.active && 
-            <button onClick={()=>{this.reset()}} className="game-button">Reset</button>
+            <button onClick={()=>{this.reset()}} className="header-game-button">Reset</button>
           }
           <img className="header-logo" src={Logo} alt="logo" />
           <section className="stats-bar">

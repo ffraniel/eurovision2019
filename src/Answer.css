@@ -39,18 +39,40 @@
   margin: 0 auto;
 }
 
-/* .highlight {
-  transition: all 0.3s;
-  bottom: 0;
-  left: 250px;
-  border-bottom:2px solid white;
-  position: absolute;
-  top:0;
-  background:rgba(255, 255, 255, 0.473);
-  left:0;
-  z-index: -1;
-  border-radius:20px;
-  display: block;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  z-index: 1;
-} */
+@media screen and (max-width: 660px) {
+  .answer {
+    text-align: center;
+    width: 100%;
+    padding: 0px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
+  button.answer-button {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 20px;
+    text-align: center;
+    transition: background-color 0.25s;
+    font-size: 1rem;
+    height: auto;
+  }
+  
+  .lilFlag {
+    height: 15px;
+  }
+  
+  .artist-image {
+    height: 160px;
+    padding: 0px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 308px) {
+  .answer {
+    font-size: 0.9rem;
+  }
+  .lilFlag {
+    height: 10px;
+  }
+}
