@@ -29,6 +29,10 @@ const Question = (props) => {
   if (window.speechSynthesis === undefined) {
     window.speechSynthesis = false;
   }
+
+  const stopSpeaking = () => {
+    speechSynthesis.cancel();
+  };
   
   const getRandomOptions = () => {
     var randomOptions = [];
@@ -93,7 +97,12 @@ const Question = (props) => {
 
   return (
     <section className="question">
-      {speechSynthesis && <button className="speak-question" onClick={()=>{speak(lyrics)}}>Speak It!</button>}
+      {speechSynthesis && 
+        <section className="question-play-buttons">
+          <button className="speak-question" onClick={()=>{speak(lyrics)}}>Speak It!</button>
+          <button className="speak-question" onClick={()=>{stopSpeaking()}}>Stop</button>
+        </section>
+      }
       <h1 className="question-lyrics">"...{lyrics}..."</h1>
       <section className="button-container">
       {songOptions.map((song, i)=> {
