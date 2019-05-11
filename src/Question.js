@@ -37,7 +37,7 @@ const Question = (props) => {
   const getRandomOptions = () => {
     var randomOptions = [];
     randomOptions.push(choosenSongs[currentRound-1]);
-    while (randomOptions.length < 3) {
+    while (randomOptions.length < 4) {
       let randomSong = songsJSON[Math.floor(Math.random() * songsJSON.length)]; // should this be length -1 ?
       if(randomOptions.includes(randomSong)) {
         console.log("It has the song ", randomSong.song, " in the list already")

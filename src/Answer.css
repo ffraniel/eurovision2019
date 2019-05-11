@@ -50,7 +50,7 @@
   button.answer-button {
     border-radius: 5px;
     padding: 5px;
-    margin: 20px;
+    margin: 1%;
     text-align: center;
     transition: background-color 0.25s;
     font-size: 1rem;
