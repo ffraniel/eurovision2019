@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Question.css';
 import songsJSON from './data/lyricsJson.json';
 import Error from './Error';
+import randomSongListMaker from './utilityFunctions/randomSongListMaker.js';
 
 const Question = (props) => {
   const { 
@@ -35,17 +36,7 @@ const Question = (props) => {
   };
   
   const getRandomOptions = () => {
-    var randomOptions = [];
-    randomOptions.push(choosenSongs[currentRound-1]);
-    while (randomOptions.length < 4) {
-      let randomSong = songsJSON[Math.floor(Math.random() * songsJSON.length)]; // should this be length -1 ?
-      if(randomOptions.includes(randomSong)) {
-        console.log("It has the song ", randomSong.song, " in the list already")
-      }
-      if (!randomOptions.includes(randomSong)) {
-        randomOptions.push(randomSong);
-      };
-    };
+    const randomOptions = randomSongListMaker(songsJSON, 4, choosenSongs[currentRound-1]);
     return randomOptions;
   };
 

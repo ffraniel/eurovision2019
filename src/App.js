@@ -4,6 +4,7 @@ import Gameplay from './Gameplay';
 import Intro from './Intro';
 import songsJSON from './data/lyricsJson.json';
 import Logo from './logo.svg';
+import randomSongListMaker from './utilityFunctions/randomSongListMaker.js';
 
 class App extends Component {
   constructor(props) {
@@ -22,12 +23,7 @@ class App extends Component {
 
   startGame () {
     var wholeSongList = [...songsJSON];
-    var songChoice = [];
-    while (songChoice.length < 5) {
-      let randomNumber = Math.round(Math.random() * wholeSongList.length);
-      songChoice.push(wholeSongList[randomNumber]);
-      wholeSongList.splice(randomNumber, 1);
-    };
+    var songChoice = randomSongListMaker(wholeSongList, 5, wholeSongList[2]);
     this.setState({
       active: true,
       currentRound: 1,
