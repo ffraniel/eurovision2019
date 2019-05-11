@@ -16,6 +16,8 @@ const Question = (props) => {
     var msg = new SpeechSynthesisUtterance();
     // msg.voice = voice;
     msg.text = lyrics;
+    msg.pitch = 1.1;
+    msg.rate = 0.9;
     speechSynthesis.cancel();
     speechSynthesis.speak(msg);
     if (startOver) {
@@ -23,6 +25,7 @@ const Question = (props) => {
       }, 100);
     };
   };
+  
 
   const getRandomOptions = () => {
     var randomOptions = [];
