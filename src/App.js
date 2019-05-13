@@ -23,7 +23,7 @@ class App extends Component {
 
   startGame () {
     var wholeSongList = [...songsJSON];
-    var songChoice = randomSongListMaker(wholeSongList, 5, wholeSongList[2]);
+    var songChoice = randomSongListMaker(wholeSongList, 5);
     this.setState({
       active: true,
       currentRound: 1,
