@@ -3,6 +3,7 @@ import './Question.css';
 import songsJSON from './data/lyricsJson.json';
 import Error from './Error';
 import randomSongListMaker from './utilityFunctions/randomSongListMaker.js';
+import getSnippet from './utilityFunctions/getSnippet.js';
 
 const Question = (props) => {
   const { 
@@ -48,37 +49,17 @@ const Question = (props) => {
     return array;
   }
 
-  const getSnippet = (songInput) => {
-    let snippetArray = songInput.lyrics.trim().split(" ");
-    let start = Math.round(Math.random() * (snippetArray.length / 2));
-    let possibleLengths = [30, 45, 20, 20, 26, 30, 16, 26, 40];
-    let snippetLength = possibleLengths[Math.floor(Math.random() * possibleLengths.length)];
-    let end = start + snippetLength;
-    var lyricsSnippet = snippetArray.slice(start, end).join(" ");
-    if (lyricsSnippet.length === 0) {
-      let snippetArray = songInput.lyrics.trim().split(" ");
-      let start = Math.round(Math.random() * (snippetArray.length / 2));
-      let possibleLengths = [30, 45, 20, 20, 26, 30, 16, 26, 40];
-      let snippetLength = possibleLengths[Math.floor(Math.random() * possibleLengths.length)];
-      let end = start + snippetLength;
-      lyricsSnippet = snippetArray.slice(start, end).join(" ");
-      if (lyricsSnippet.length === 0) {
-        let snippetArray = songInput.lyrics.trim().split(" ");
-        let start = Math.round(Math.random() * (snippetArray.length / 2));
-        let possibleLengths = [30, 45, 20, 20, 26, 30, 16, 26, 40];
-        let snippetLength = possibleLengths[Math.floor(Math.random() * possibleLengths.length)];
-        let end = start + snippetLength;
-        lyricsSnippet = snippetArray.slice(start, end).join(" ");
-      }
-      if (lyricsSnippet.length === 0) {
-        setError({message: "Lyrics snippet selection error. Please refresh the page."});
-      }
+  const makeSnippet = (songInput) => {
+    const snippet = getSnippet(songInput);
+    if (snippet.length === 0) {
+      setError({message: "Lyrics snippet selection error. Please refresh the page."});
     }
-    return lyricsSnippet;
+    return snippet;
   };
+  
   var songOptions = shuffleArray(getRandomOptions());
   var currentSong = choosenSongs[currentRound - 1];
-  const lyrics = getSnippet(currentSong);
+  const lyrics = makeSnippet(currentSong);
 
   if (error) {
     return (
