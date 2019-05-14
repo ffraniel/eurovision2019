@@ -82,7 +82,10 @@ const Question = (props) => {
           return <Error key={`error${i}`}/>
         }
         return (
-          <button className="answer-button" onClick={() => {submitAnswerControl(song)}} key={song.country} >{song.country}</button>
+          <button className="answer-button" onClick={() => {
+              stopSpeaking();
+              submitAnswerControl(song);
+            }} key={song.country} >{song.country}</button>
         )}
       )}
       </section>
