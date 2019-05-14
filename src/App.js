@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
     this.state={
       active: false,
-      currentRound: 1,
+      currentRound: '-',
       points: 0,
       choosenSongs: []
     }
@@ -35,7 +35,7 @@ class App extends Component {
   reset () {
     this.setState({
       active: false,
-      currentRound: 1,
+      currentRound: '-',
       points: 0,
       choosenSongs: []
     });
@@ -73,7 +73,7 @@ class App extends Component {
           <img className="header-logo" src={Logo} alt="logo" />
           <section className="stats-bar">
             <h4>Round {this.state.currentRound}</h4>
-            <h4 className="points">Points {this.state.points}</h4>
+            <h4 className="points">Points {this.state.active ? this.state.points : '-'}</h4>
           </section>
         </header>
         {this.state.active && 
