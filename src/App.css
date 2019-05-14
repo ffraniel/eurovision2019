@@ -18,7 +18,7 @@ body {
   font-weight: 600;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  color: rgb(3, 11, 39);
+  color: #03273f;
   padding-bottom: 10px;
 }
 
@@ -44,7 +44,7 @@ body {
   background-color: white;
   border: none;
   border-radius: 5px;
-  color: black;
+  color: #03273f;
   padding: 5px 20px;
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
@@ -65,7 +65,7 @@ body {
   background-color: white;
   border: none;
   border-radius: 5px;
-  color: black;
+  color: #03273f;
   padding: 5px 20px;
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
@@ -86,7 +86,7 @@ body {
   position: fixed;
   bottom: 0;
   right: 20px;
-  background-color: black;
+  background-color: rgb(1, 8, 17);
   color: white;
   padding: 8px;
   border-radius: 10px;
@@ -97,7 +97,7 @@ body {
 
 .profile-link:hover {
   background-color:white;
-  color: black;
+  color: #00080e;
 }
 
 .points {
@@ -131,7 +131,6 @@ body {
   }
   .profile-link {
     right: 10px;
-    background-color: black;
     color: white;
     padding: 5px;
     border-radius: 5px;
