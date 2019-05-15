@@ -1,14 +1,34 @@
 .intro {
   text-align: center;
+  animation: fadeIn 0.5s;
 }
 
-.intro h1 {
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.intro-titles {
   padding: 15px;
   padding-top: 30px;
   text-align: center;
   font-size: 1.5rem;
   color: rgb(239, 245, 247);
+  margin: 0;
+}
 
+.intro-titles h1 {
+  padding: 0;
+  margin: 10px;
+}
+
+.intro-titles .intro-title {
+  padding: 20px;
+ font-size: 2.5rem;
 }
 
 .logo {
